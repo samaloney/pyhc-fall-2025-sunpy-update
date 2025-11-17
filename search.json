@@ -1,44 +1,23 @@
 [
   {
-    "objectID": "slides.html#drawing-extents-of-images-on-other-images",
-    "href": "slides.html#drawing-extents-of-images-on-other-images",
+    "objectID": "slides.html#solarnet-client",
+    "href": "slides.html#solarnet-client",
     "title": "A SunPy Project Update",
-    "section": "Drawing extents of images on other images",
-    "text": "Drawing extents of images on other images\n\n\n\n\n\n\nhttps://docs.sunpy.org/en/stable/generated/gallery/plotting/draw_wcs_extent.html\nContribution by Will Barnes"
+    "section": "SolarNet Client",
+    "text": "SolarNet Client\n\n\nfrom sunpy.net import Fido, attrs as a\n\nsearch_results = Fido.search(a.solarnet.Dataset.gris_level_1,a.solarnet.Limit(2), a.solarnet.Target.ar)\n\nsearch_results\n\nResults from 1 Provider:2 Results from the SOLARNETClient:QueryResponseTable length=2\n\nData_locationTagsResource_uriOidDate_begDate_endWaveminWavemaxAccumulaAdunormAosystemAzimutB0angleBscaleBzeroCameraCamposCoefi_1Coefi_2Coefi_3Coefi_4Coefq_1Coefq_2Coefq_3Coefq_4Coefu_1Coefu_2Coefu_3Coefu_4Coefv_1Coefv_2Coefv_3Coefv_4ColposDataframDataversDate_obsDecEimgaccElevatioElperaduExptimeFilenameFilestatFullframGratanglHouranglIfileImagtypeIrfilterIserieL0angleLc1_1Lc1_2Lc1_3Lc1_4Lc2_1Lc2_2Lc2_3Lc2_4LcsMeasureNaxisNaxis1Naxis2Naxis3NfilesP0angleParaanglR0radiusRaRotangleRotcodeSeriesSpsystemStatesStepanglStepsStepshStepsizeStepsvTelescopTemp_lc1Temp_lc2WavelengF_sizeurl\nobjectfloat64[0]str54str14str24str24float64float64int64objectstr1objectobjectobjectobjectstr1objectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectstr1objectstr24objectobjectobjectobjectobjectstr1str1str1objectobjectobjectstr1str1objectobjectobjectobjectobjectobjectobjectobjectobjectobjectobjectstr1int64int64int64int64objectobjectobjectobjectobjectobjectobjectobjectstr1objectobjectobjectobjectobjectobjectstr6objectobjectint64str1str128\n{'resource_uri': '/service/api/svo/data_location/12496618/', 'dataset': '/service/api/svo/dataset/GRIS%20level%201/', 'id': 12496618, 'file_url': 'https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&ObjectId=5ee0feb97a92554c6de920ab&Buckets=level1&', 'file_size': '0', 'file_path': 'gris_20140426_000.tar', 'thumbnail_url': 'https://archive.sdc.leibniz-kis.de/FileRetrievalServlet?ResourceType=obs_location&Instrument=gris&ObjectId=5ee0feb97a92554c6de920ab', 'update_time': '2022-07-20T12:57:00.480Z', 'offline': False}/service/api/svo/metadata_gris_level_1/20140426094659/201404260946592014-04-26T09:46:59.000Z2014-04-26T09:53:41.300Z1564.01991568.04613NoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNone2014-04-26T00:00:00.000ZNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNone51054711010NoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneGREGORNoneNone15660https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&ObjectId=5ee0feb97a92554c6de920ab&Buckets=level1&\n{'resource_uri': '/service/api/svo/data_location/12496619/', 'dataset': '/service/api/svo/dataset/GRIS%20level%201/', 'id': 12496619, 'file_url': 'https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&ObjectId=5ee0fe957a92554c6de920a9&Buckets=level1&', 'file_size': '0', 'file_path': 'gris_20140426_002.tar', 'thumbnail_url': 'https://archive.sdc.leibniz-kis.de/FileRetrievalServlet?ResourceType=obs_location&Instrument=gris&ObjectId=5ee0fe957a92554c6de920a9', 'update_time': '2022-07-20T12:57:00.929Z', 'offline': False}/service/api/svo/metadata_gris_level_1/20140426095643/201404260956432014-04-26T09:56:43.000Z2014-04-26T10:09:50.300Z1564.01911568.04613NoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNone2014-04-26T00:00:00.000ZNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNone52004711010NoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneGREGORNoneNone15660https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&ObjectId=5ee0fe957a92554c6de920a9&Buckets=level1&\n\n\n\n\nContribution by Saurav Kumar Roy"
   },
   {
-    "objectID": "slides.html#helioprojective-radial-coordinates",
-    "href": "slides.html#helioprojective-radial-coordinates",
+    "objectID": "slides.html#time-distance-plot-example",
+    "href": "slides.html#time-distance-plot-example",
     "title": "A SunPy Project Update",
-    "section": "Helioprojective Radial Coordinates",
-    "text": "Helioprojective Radial Coordinates\n\n\n\n\n\n\nhttps://docs.sunpy.org/en/stable/generated/gallery/map_transformations/reprojection_helioprojective_radial.html\nContribution by Albert Shih"
+    "section": "Time-Distance Plot Example",
+    "text": "Time-Distance Plot Example\n\n\n\n\n\n\nhttps://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py\nContribution by Pratham Hole and Shane Maloney\nContribution by Saurav Kumar Roy"
   },
   {
-    "objectID": "slides.html#support-for-s3-uris-with-fsspec",
-    "href": "slides.html#support-for-s3-uris-with-fsspec",
+    "objectID": "slides.html#adding-earth-scale-image",
+    "href": "slides.html#adding-earth-scale-image",
     "title": "A SunPy Project Update",
-    "section": "Support for S3 URIs with fsspec",
-    "text": "Support for S3 URIs with fsspec\n\n\nimport sunpy.map\n\ns3_map = sunpy.map.Map(\"s3://data.sunpy.org/sunpy/AIA20110607_063302_0171_lowres.fits\",\n                       fsspec_kwargs={\"anon\": True})\ns3_map.peek()\n\n\n\n\n\n\n\n\n\nContribution by Wenli Mo"
-  },
-  {
-    "objectID": "slides.html#support-for-new-observatories",
-    "href": "slides.html#support-for-new-observatories",
-    "title": "A SunPy Project Update",
-    "section": "Support for New Observatories",
-    "text": "Support for New Observatories\n\n\nPolarimeter to Unify the Corona and Heliosphere (PUNCH)\n\n\nSolar Ultraviolet Imaging Telescope (SUIT) \n\nAlso added support for EIT Level 1 data and GONG magnetograms.\nContributions by Chris Lowder, Rahul Gopalakrishnan, Nabil Freij, Shane Maloney"
-  },
-  {
-    "objectID": "slides.html#plotting-maps-with-autoalignment",
-    "href": "slides.html#plotting-maps-with-autoalignment",
-    "title": "A SunPy Project Update",
-    "section": "Plotting Maps with Autoalignment",
-    "text": "Plotting Maps with Autoalignment\n.plot(autoalign=True) now picks the best autoalign method (with significantly better performance):\n\n\n\n\n\n\nContributions by Albert Shih, Pratham Hole"
-  },
-  {
-    "objectID": "slides.html#off-disk-points-can-now-be-differentially-rotated",
-    "href": "slides.html#off-disk-points-can-now-be-differentially-rotated",
-    "title": "A SunPy Project Update",
-    "section": "Off-disk points can now be differentially rotated",
-    "text": "Off-disk points can now be differentially rotated\nby using SphericalScreen\n\n\n\nContributions by Albert Shih"
+    "section": "Adding Earth Scale Image",
+    "text": "Adding Earth Scale Image\n\n\n\n\nhttps://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py\nContribution by Nabil Freij and Albert Y. Shih"
   }
 ]

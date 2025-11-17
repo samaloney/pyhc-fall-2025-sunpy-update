@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -186,6 +186,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -193,7 +196,7 @@
 
 <section id="title-slide" data-background-image="static/sunpy_icon.svg" data-background-opacity="50%" data-background-position="-100% 50%" data-background-size="80%" class="quarto-title-block center">
   <h1 class="title">A SunPy Project Update</h1>
-  <p class="subtitle">PyHC Fall Meeting</p>
+  <p class="subtitle">PyHC Fall Meetingm 2025</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -216,7 +219,8 @@ The SunPy Project
 <h1>The SunPy Project Since May</h1>
 <p><strong>Feature Releases:</strong></p>
 <ul>
-<li><code>sunpy</code> 7.1rc0 expected in next few weeks</li>
+<li><code>sunpy</code> 7.1 expected in next few weeks</li>
+<li><code>sunraster</code> 0.7 (Oct), 0.6 (Jun)</li>
 </ul>
 <p><strong>Maintenance Releases:</strong></p>
 <ul>
@@ -224,117 +228,59 @@ The SunPy Project
 <li><code>ndcube</code> 2.3.2, 2.3.3, 2.3.4</li>
 <li><code>radiospectra</code> 0.6.1</li>
 <li><code>sunkit-instruments</code> 0.6.2</li>
+<li><code>sunkit-image</code> 0.6.1</li>
+<li><code>stream-tracer</code> 2.5.0</li>
 </ul>
 </section>
 
 <section>
-<section id="highlights-in-sunpy-6.1-and-7.0" class="title-slide slide level1 center">
-<h1>Highlights in <code>sunpy</code> 6.1 and 7.0</h1>
+<section id="highlights-in-sunpy-7.1" class="title-slide slide level1 center">
+<h1>Highlights in <code>sunpy</code> 7.1</h1>
 
 </section>
-<section id="drawing-extents-of-images-on-other-images" class="slide level2">
-<h2>Drawing extents of images on other images</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="https://docs.sunpy.org/en/stable/_images/sphx_glr_draw_wcs_extent_002.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="https://docs.sunpy.org/en/stable/_images/sphx_glr_draw_wcs_extent_003.png"></p>
-</div></div>
-<p><a href="https://docs.sunpy.org/en/stable/generated/gallery/plotting/draw_wcs_extent.html">https://docs.sunpy.org/en/stable/generated/gallery/plotting/draw_wcs_extent.html</a></p>
-<p><em>Contribution by Will Barnes</em></p>
-</section>
-<section id="helioprojective-radial-coordinates" class="slide level2">
-<h2>Helioprojective Radial Coordinates</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="https://docs.sunpy.org/en/stable/_images/sphx_glr_reprojection_helioprojective_radial_001.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="https://docs.sunpy.org/en/stable/_images/sphx_glr_reprojection_helioprojective_radial_002.png"></p>
-</div></div>
-<p><a href="https://docs.sunpy.org/en/stable/generated/gallery/map_transformations/reprojection_helioprojective_radial.html">https://docs.sunpy.org/en/stable/generated/gallery/map_transformations/reprojection_helioprojective_radial.html</a></p>
-<p><em>Contribution by Albert Shih</em></p>
-</section>
-<section id="support-for-s3-uris-with-fsspec" class="slide level2">
-<h2>Support for S3 URIs with fsspec</h2>
+<section id="solarnet-client" class="slide level2">
+<h2>SolarNet Client</h2>
 <div class="center">
-<div id="66782ca2" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> sunpy.<span class="bu">map</span></span>
+<div id="adffae54" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a</span>
 <span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>s3_map <span class="op">=</span> sunpy.<span class="bu">map</span>.Map(<span class="st">"s3://data.sunpy.org/sunpy/AIA20110607_063302_0171_lowres.fits"</span>,</span>
-<span id="cb1-4"><a></a>                       fsspec_kwargs<span class="op">=</span>{<span class="st">"anon"</span>: <span class="va">True</span>})</span>
-<span id="cb1-5"><a></a>s3_map.peek()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-3-output-1.png" width="585" height="454"></p>
-</figure>
+<span id="cb1-3"><a></a>search_results <span class="op">=</span> Fido.search(a.solarnet.Dataset.gris_level_1,a.solarnet.Limit(<span class="dv">2</span>), a.solarnet.Target.ar)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>search_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+Results from 1 Provider:<br><br>2 Results from the SOLARNETClient:<br><div><i>QueryResponseTable length=2</i>
+<table id="table139766504519392" class="table-striped table-bordered table-condensed">
+<thead><tr><th>Data_location</th><th>Tags</th><th>Resource_uri</th><th>Oid</th><th>Date_beg</th><th>Date_end</th><th>Wavemin</th><th>Wavemax</th><th>Accumula</th><th>Adunorm</th><th>Aosystem</th><th>Azimut</th><th>B0angle</th><th>Bscale</th><th>Bzero</th><th>Camera</th><th>Campos</th><th>Coefi_1</th><th>Coefi_2</th><th>Coefi_3</th><th>Coefi_4</th><th>Coefq_1</th><th>Coefq_2</th><th>Coefq_3</th><th>Coefq_4</th><th>Coefu_1</th><th>Coefu_2</th><th>Coefu_3</th><th>Coefu_4</th><th>Coefv_1</th><th>Coefv_2</th><th>Coefv_3</th><th>Coefv_4</th><th>Colpos</th><th>Datafram</th><th>Datavers</th><th>Date_obs</th><th>Dec</th><th>Eimgacc</th><th>Elevatio</th><th>Elperadu</th><th>Exptime</th><th>Filename</th><th>Filestat</th><th>Fullfram</th><th>Gratangl</th><th>Hourangl</th><th>Ifile</th><th>Imagtype</th><th>Irfilter</th><th>Iserie</th><th>L0angle</th><th>Lc1_1</th><th>Lc1_2</th><th>Lc1_3</th><th>Lc1_4</th><th>Lc2_1</th><th>Lc2_2</th><th>Lc2_3</th><th>Lc2_4</th><th>Lcs</th><th>Measure</th><th>Naxis</th><th>Naxis1</th><th>Naxis2</th><th>Naxis3</th><th>Nfiles</th><th>P0angle</th><th>Paraangl</th><th>R0radius</th><th>Ra</th><th>Rotangle</th><th>Rotcode</th><th>Series</th><th>Spsystem</th><th>States</th><th>Stepangl</th><th>Steps</th><th>Stepsh</th><th>Stepsize</th><th>Stepsv</th><th>Telescop</th><th>Temp_lc1</th><th>Temp_lc2</th><th>Waveleng</th><th>F_size</th><th>url</th></tr></thead>
+<thead><tr><th>object</th><th>float64[0]</th><th>str54</th><th>str14</th><th>str24</th><th>str24</th><th>float64</th><th>float64</th><th>int64</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>str24</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>str1</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str6</th><th>object</th><th>object</th><th>int64</th><th>str1</th><th>str128</th></tr></thead>
+<tbody><tr><td>{'resource_uri': '/service/api/svo/data_location/12496618/', 'dataset': '/service/api/svo/dataset/GRIS%20level%201/', 'id': 12496618, 'file_url': 'https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0feb97a92554c6de920ab&amp;Buckets=level1&amp;', 'file_size': '0', 'file_path': 'gris_20140426_000.tar', 'thumbnail_url': 'https://archive.sdc.leibniz-kis.de/FileRetrievalServlet?ResourceType=obs_location&amp;Instrument=gris&amp;ObjectId=5ee0feb97a92554c6de920ab', 'update_time': '2022-07-20T12:57:00.480Z', 'offline': False}</td><td></td><td>/service/api/svo/metadata_gris_level_1/20140426094659/</td><td>20140426094659</td><td>2014-04-26T09:46:59.000Z</td><td>2014-04-26T09:53:41.300Z</td><td>1564.0199</td><td>1568.0461</td><td>3</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>2014-04-26T00:00:00.000Z</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td></td><td></td><td>None</td><td>None</td><td>None</td><td></td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>5</td><td>105</td><td>471</td><td>1010</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>GREGOR</td><td>None</td><td>None</td><td>1566</td><td>0</td><td>https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0feb97a92554c6de920ab&amp;Buckets=level1&amp;</td></tr>
+<tr><td>{'resource_uri': '/service/api/svo/data_location/12496619/', 'dataset': '/service/api/svo/dataset/GRIS%20level%201/', 'id': 12496619, 'file_url': 'https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0fe957a92554c6de920a9&amp;Buckets=level1&amp;', 'file_size': '0', 'file_path': 'gris_20140426_002.tar', 'thumbnail_url': 'https://archive.sdc.leibniz-kis.de/FileRetrievalServlet?ResourceType=obs_location&amp;Instrument=gris&amp;ObjectId=5ee0fe957a92554c6de920a9', 'update_time': '2022-07-20T12:57:00.929Z', 'offline': False}</td><td></td><td>/service/api/svo/metadata_gris_level_1/20140426095643/</td><td>20140426095643</td><td>2014-04-26T09:56:43.000Z</td><td>2014-04-26T10:09:50.300Z</td><td>1564.0191</td><td>1568.0461</td><td>3</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>2014-04-26T00:00:00.000Z</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td></td><td></td><td>None</td><td>None</td><td>None</td><td></td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>5</td><td>200</td><td>471</td><td>1010</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>GREGOR</td><td>None</td><td>None</td><td>1566</td><td>0</td><td>https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0fe957a92554c6de920a9&amp;Buckets=level1&amp;</td></tr>
+</tbody></table></div><br>
 </div>
 </div>
 </div>
-</div>
-<p><em>Contribution by Wenli Mo</em></p>
+<p><em>Contribution by Saurav Kumar Roy</em></p>
 </section>
-<section id="support-for-new-observatories" class="slide level2">
-<h2>Support for New Observatories</h2>
+<section id="time-distance-plot-example" class="slide level2">
+<h2>Time-Distance Plot Example</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Polarimeter to Unify the Corona and Heliosphere (PUNCH)</p>
-<p><img data-src="https://docs.sunpy.org/en/latest/_images/7.0-punch.png"></p>
+<p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_time_distance_001.png"></p>
 </div><div class="column" style="width:50%;">
-<p>Solar Ultraviolet Imaging Telescope (SUIT) <img data-src="./static/suit.png"></p>
+<p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_time_distance_002.png"></p>
 </div></div>
-<p>Also added support for EIT Level 1 data and GONG magnetograms.</p>
-<p><em>Contributions by Chris Lowder, Rahul Gopalakrishnan, Nabil Freij, Shane Maloney</em></p>
+<p><a href="https://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py">https://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py</a></p>
+<p><em>Contribution by Pratham Hole and Shane Maloney</em></p>
+<p><em>Contribution by Saurav Kumar Roy</em></p>
 </section>
-<section id="plotting-maps-with-autoalignment" class="slide level2">
-<h2>Plotting Maps with Autoalignment</h2>
-<p><code>.plot(autoalign=True)</code> now picks the best autoalign method (with significantly better performance):</p>
+<section id="adding-earth-scale-image" class="slide level2">
+<h2>Adding Earth Scale Image</h2>
 <div class="columns">
-<div class="column" style="width:65%;">
-<p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_autoalign_aia_hmi_001.png"></p>
-</div><div class="column" style="width:35%;">
-<p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_autoalign_aia_hmi_003.png"></p>
+<div class="column" style="width:75%;">
+<p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_adding_earth_001.png"></p>
 </div></div>
-<p><em>Contributions by Albert Shih, Pratham Hole</em></p>
-</section>
-<section id="off-disk-points-can-now-be-differentially-rotated" class="slide level2">
-<h2>Off-disk points can now be differentially rotated</h2>
-<p>by using <a href="https://docs.sunpy.org/en/latest/generated/api/sunpy.coordinates.SphericalScreen.html#sunpy.coordinates.SphericalScreen"><code>SphericalScreen</code></a></p>
-<div class="small">
-<p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_reprojected_map_002.png"></p>
-</div>
-<p><em>Contributions by Albert Shih</em></p>
+<p><a href="https://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py">https://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py</a></p>
+<p><em>Contribution by Nabil Freij and Albert Y. Shih</em></p>
 </section></section>
-<section id="ndcube-2.3" class="title-slide slide level1 center">
-<h1>ndcube 2.3</h1>
-<p>Highlights:</p>
-<ul>
-<li>Add’s a <code>NDMeta</code> class with functionality for assigning metadata to an array axis (and modifying it accordingly).</li>
-<li>Adds <code>NDCube.squeeze()</code> to remove length 1 axes.</li>
-<li>Significant speed up in <code>NDCube.axis_world_coords</code>.</li>
-<li>Add’s a shortcut to <code>NDCube.rebin()</code> to not rebin along an axis by setting its binsize to -1.</li>
-</ul>
-<p>Changelog: <a href="https://docs.sunpy.org/projects/ndcube/en/stable/whatsnew/changelog.html#id2">https://docs.sunpy.org/projects/ndcube/en/stable/whatsnew/changelog.html#id2</a></p>
-</section>
-
-<section id="sunkit-magex-1.1" class="title-slide slide level1 center">
-<h1>sunkit-magex 1.1</h1>
-<p>Highlights:</p>
-<ul>
-<li>Various cleanups, with some breaking changes from the pfsspy API.</li>
-<li>Made the <code>streamtracer</code> dependancy required for fast tracing.</li>
-</ul>
-</section>
-
-<section id="sunkit-instruments-0.6" class="title-slide slide level1 center">
-<h1>sunkit-instruments 0.6</h1>
-<p>Highlights:</p>
-<ul>
-<li><code>SourceSpectra</code> and <code>AbstractChannel</code> classes as building blocks for temperature response functionality.</li>
-<li>Added support for SUVI flight models.</li>
-</ul>
-</section>
-
 <section id="other-updates" class="title-slide slide level1 center">
 <h1>Other Updates</h1>
 <ul>
