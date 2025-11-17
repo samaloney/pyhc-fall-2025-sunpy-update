@@ -1,1 +1,1 @@
-sunpy[all,s3]
+sunpy[all,s3]~=7.0
