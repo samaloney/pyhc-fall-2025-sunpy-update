@@ -1,1 +1,1 @@
-sunpy[all,s3]~=7.0
+#sunpy[all,s3]@git+https://github.com/sunpy/sunpy.git

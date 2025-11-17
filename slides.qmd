@@ -1,6 +1,6 @@
 ---
 title: A SunPy Project Update
-subtitle: PyHC Fall Meeting
+subtitle: PyHC Fall Meeting 2025
 authors:
 - Shane Maloney
 - The SunPy Project
@@ -32,7 +32,9 @@ os.environ["PARFIVE_HIDE_PROGRESS"] = "True"
 
 **Feature Releases:**
 
-* `sunpy` 7.1rc0 expected in next few weeks 
+* `sunpy` 7.1 expected in next few weeks
+* `sunraster` 0.7 (Oct), 0.6 (Jun)
+
 
 **Maintenance Releases:**
 
@@ -40,134 +42,88 @@ os.environ["PARFIVE_HIDE_PROGRESS"] = "True"
 * `ndcube` 2.3.2, 2.3.3, 2.3.4
 * `radiospectra` 0.6.1
 * `sunkit-instruments` 0.6.2
+* `sunkit-image` 0.6.1
+* `stream-tracer` 2.5.0
 
-# Highlights in `sunpy` 6.1 and 7.0
+# Highlights in `sunpy` 7.1
 
-## Drawing extents of images on other images
-:::: {.columns}
-
-::: {.column width="50%"}
-![](https://docs.sunpy.org/en/stable/_images/sphx_glr_draw_wcs_extent_002.png)
-:::
-
-::: {.column width="50%"}
-![](https://docs.sunpy.org/en/stable/_images/sphx_glr_draw_wcs_extent_003.png)
-:::
-
-::::
-
-[https://docs.sunpy.org/en/stable/generated/gallery/plotting/draw_wcs_extent.html](https://docs.sunpy.org/en/stable/generated/gallery/plotting/draw_wcs_extent.html)
-
-*Contribution by Will Barnes*
-
-## Helioprojective Radial Coordinates
+## Breaking Changes and Removals
 
 :::: {.columns}
 
 ::: {.column width="50%"}
-![](https://docs.sunpy.org/en/stable/_images/sphx_glr_reprojection_helioprojective_radial_001.png)
+**Breaking**
+
+* Increased minimum versions: Python >= 3.12, astropy >= 6.1.0, matplotlib >= 3.8.0, numpy >= 1.26.0, pandas >= 2.2.0, scipy >= 1.12.0
 :::
 
 ::: {.column width="50%"}
-![](https://docs.sunpy.org/en/stable/_images/sphx_glr_reprojection_helioprojective_radial_002.png)
+**Removals**
+
+* Removed backwards compatibility with the legacy keyword, pattern within `sunpy.net.Scraper`
+* Remove deprecated `assume_spherical_screen` method in favor of `SphericalScreen`
 :::
 
 ::::
 
-[https://docs.sunpy.org/en/stable/generated/gallery/map_transformations/reprojection_helioprojective_radial.html](https://docs.sunpy.org/en/stable/generated/gallery/map_transformations/reprojection_helioprojective_radial.html)
-
-*Contribution by Albert Shih*
-
-## Support for S3 URIs with fsspec 
+## SolarNet Client 
 
 :::: {.center}
 
-```{python}
-#| echo: true
-import sunpy.map
+Added a [SOLARNET](https://solarnet.oma.be) client primarily focused on ground based observations.
 
-s3_map = sunpy.map.Map("s3://data.sunpy.org/sunpy/AIA20110607_063302_0171_lowres.fits",
-                       fsspec_kwargs={"anon": True})
-s3_map.peek()
+```{.python}
+>>> from sunpy.net import Fido, attrs as a  # doctest: +REMOTE_DATA
+>>> result = Fido.search(a.Time('2023-01-01', '2023-01-02'), a.solarnet.Dataset.eui_level_2, a.solarnet.Limit(2))
+>>> result
+<sunpy.net.fido_factory.UnifiedResponse object at ...>
+Results from 1 Provider:
+
+2 Results from the SOLARNETClient:
+Source: https://solarnet2.oma.be
+<BLANKLINE>
+       OID                 DATE_BEG                 DATE_END         WAVEMIN WAVEMAX         DATE_OBS
+------------------ ------------------------ ------------------------ ------- ------- ------------------------
+20230101T000005185 2023-01-01T00:00:05.185Z 2023-01-01T00:16:45.185Z    17.1    18.5 2023-01-01T00:00:05.185Z
+20230101T001805186 2023-01-01T00:18:05.186Z 2023-01-01T00:34:45.186Z    17.1    18.5 2023-01-01T00:18:05.186Z
+
 ```
 ::::
 
-*Contribution by Wenli Mo*
+*Contribution by Saurav Kumar Roy*
 
-## Support for New Observatories
-
+## Time-Distance Plot Example
 :::: {.columns}
 
 ::: {.column width="50%"}
-Polarimeter to Unify the Corona and Heliosphere (PUNCH) 
-
-![](https://docs.sunpy.org/en/latest/_images/7.0-punch.png)
+![](https://docs.sunpy.org/en/latest/_images/sphx_glr_time_distance_001.png)
 :::
 
 ::: {.column width="50%"}
-Solar Ultraviolet Imaging Telescope (SUIT)
-![](./static/suit.png)
+![](https://docs.sunpy.org/en/latest/_images/sphx_glr_time_distance_002.png)
 :::
 
 ::::
 
-Also added support for EIT Level 1 data and GONG magnetograms.
+[https://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py](https://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py)
 
-*Contributions by Chris Lowder, Rahul Gopalakrishnan, Nabil Freij, Shane Maloney*
+*Contribution by Pratham Hole and Shane Maloney*
 
-## Plotting Maps with Autoalignment
-
-`.plot(autoalign=True)` now picks the best autoalign method (with significantly better performance):
-
+## Adding Earth Scale Image
 :::: {.columns}
 
-::: {.column width="65%"}
-![](https://docs.sunpy.org/en/latest/_images/sphx_glr_autoalign_aia_hmi_001.png)
-:::
-
-::: {.column width="35%"}
-![](https://docs.sunpy.org/en/latest/_images/sphx_glr_autoalign_aia_hmi_003.png)
+::: {.column width="75%" .center}
+![](https://docs.sunpy.org/en/latest/_images/sphx_glr_adding_earth_001.png)
 :::
 
 ::::
 
-*Contributions by Albert Shih, Pratham Hole*
+[https://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py](https://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py)
 
-## Off-disk points can now be differentially rotated
+*Contribution by Nabil Freij and Albert Y. Shih*
 
-by using [`SphericalScreen`](https://docs.sunpy.org/en/latest/generated/api/sunpy.coordinates.SphericalScreen.html#sunpy.coordinates.SphericalScreen)
-
-::: {.small}
-![](https://docs.sunpy.org/en/latest/_images/sphx_glr_reprojected_map_002.png)
-:::
-
-*Contributions by Albert Shih*
-
-# ndcube 2.3
-
-Highlights:
-
-* Add's a `NDMeta` class with functionality for assigning metadata to an array axis (and modifying it accordingly).
-* Adds `NDCube.squeeze()`  to remove length 1 axes.
-* Significant speed up in `NDCube.axis_world_coords`.
-* Add's a shortcut to `NDCube.rebin()` to not rebin along an axis by setting its binsize to -1.
-
-Changelog: [https://docs.sunpy.org/projects/ndcube/en/stable/whatsnew/changelog.html#id2](https://docs.sunpy.org/projects/ndcube/en/stable/whatsnew/changelog.html#id2)
-
-# sunkit-magex 1.1
-
-Highlights:
-
-* Various cleanups, with some breaking changes from the pfsspy API.
-* Made the `streamtracer` dependancy required for fast tracing.
-
-# sunkit-instruments 0.6
-
-Highlights:
-
-* `SourceSpectra` and `AbstractChannel` classes as building blocks for temperature response functionality.
-* Added support for SUVI flight models.
 
 # Other Updates
 
 * Coordination Meeting 18th-20th June in London (hybrid) - [https://sunpy.org/about/meetings](https://sunpy.org/about/meetings)
+* NDCub<->Map  
