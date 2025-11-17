@@ -237,20 +237,17 @@ The SunPy Project
 </section>
 <section id="breaking-changes-and-removals" class="slide level2">
 <h2>Breaking Changes and Removals</h2>
-<h3 id="breaking">Breaking</h3>
-<ul>
-<li>Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0</li>
-</ul>
-<h3 id="removals">Removals</h3>
-<ul>
-<li>Removed backwards compatibility with the legacy keyword, pattern within <code>sunpy.net.Scraper</code></li>
-<li>Remove deprecated <code>assume_spherical_screen</code> method in favor of <code>SphericalScreen</code></li>
-</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Breaking</strong> * Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Removals</strong> * Removed backwards compatibility with the legacy keyword, pattern within <code>sunpy.net.Scraper</code> * Remove deprecated <code>assume_spherical_screen</code> method in favor of <code>SphericalScreen</code></p>
+</div></div>
 </section>
 <section id="solarnet-client" class="slide level2">
 <h2>SolarNet Client</h2>
 <div class="center">
-<div id="1860e9fe" class="cell" data-execution_count="2">
+<div id="08bc3ed8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>search_results <span class="op">=</span> Fido.search(a.solarnet.Dataset.gris_level_1,a.solarnet.Limit(<span class="dv">2</span>), a.solarnet.Target.ar)</span>
