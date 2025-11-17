@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.30">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <title>A SunPy Project Update</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -94,7 +94,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-6aa74d5579d16a11361342f8c7822d33.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-461e7398f309174c45e5cd10e5a8b5b7.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -193,15 +193,15 @@
 
 <section id="title-slide" data-background-image="static/sunpy_icon.svg" data-background-opacity="50%" data-background-position="-100% 50%" data-background-size="80%" class="quarto-title-block center">
   <h1 class="title">A SunPy Project Update</h1>
-  <p class="subtitle">PyHC Spring Meeting</p>
+  <p class="subtitle">PyHC Fall Meeting</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Stuart Mumford 
+Shane Maloney 
 </div>
         <p class="quarto-title-affiliation">
-            Aperio Software Ltd
+            Dublin Insitute for Advanced Studies
           </p>
     </div>
 <div class="quarto-title-author">
@@ -212,21 +212,18 @@ The SunPy Project
 </div>
 
 </section>
-<section id="the-sunpy-project-since-november" class="title-slide slide level1 center">
-<h1>The SunPy Project Since November</h1>
+<section id="the-sunpy-project-since-may" class="title-slide slide level1 center">
+<h1>The SunPy Project Since May</h1>
 <p><strong>Feature Releases:</strong></p>
 <ul>
-<li><code>sunpy</code> 6.1 (Feburary), 7.0rc2 out for testing, final expected this week.</li>
-<li><code>ndcube</code> 2.3 (January)</li>
-<li><code>sunkit-image</code> 0.6 (Feburary)</li>
-<li><code>sunkit-instruments</code> 0.6 (March)</li>
-<li><code>drms</code> 0.9 (Feburary)</li>
-<li><code>sunkit-magex</code> 1.1 (May)</li>
+<li><code>sunpy</code> 7.1rc0 expected in next few weeks</li>
 </ul>
 <p><strong>Maintenance Releases:</strong></p>
 <ul>
-<li><code>streamtracer</code> 2.4.0 and 2.4.1</li>
+<li><code>sunpy</code> 7.0.1, 7.0.2, 7.0.3</li>
+<li><code>ndcube</code> 2.3.2, 2.3.3, 2.3.4</li>
 <li><code>radiospectra</code> 0.6.1</li>
+<li><code>sunkit-instruments</code> 0.6.2</li>
 </ul>
 </section>
 
@@ -260,16 +257,16 @@ The SunPy Project
 <section id="support-for-s3-uris-with-fsspec" class="slide level2">
 <h2>Support for S3 URIs with fsspec</h2>
 <div class="center">
-<div id="67937e21" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> sunpy.<span class="bu">map</span></span>
+<div id="66782ca2" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> sunpy.<span class="bu">map</span></span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>s3_map <span class="op">=</span> sunpy.<span class="bu">map</span>.Map(<span class="st">"s3://data.sunpy.org/sunpy/AIA20110607_063302_0171_lowres.fits"</span>,</span>
 <span id="cb1-4"><a></a>                       fsspec_kwargs<span class="op">=</span>{<span class="st">"anon"</span>: <span class="va">True</span>})</span>
-<span id="cb1-5"><a></a>s3_map.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a></a>s3_map.peek()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-3-output-1.png"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-3-output-1.png" width="585" height="454"></p>
 </figure>
 </div>
 </div>
@@ -350,7 +347,7 @@ The SunPy Project
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="static/sunpy_logo_landscape.svg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://github.com/Cadair/pyhc-spring-2025-sunpy-update">Cadair/pyhc-spring-2025-sunpy-update</a></p>
+<p><a href="https://github.com/samaloney/pyhc-fall-2025-sunpy-update">samaloney/pyhc-spring-2025-sunpy-update</a></p>
 </div>
 </div></div>
 
@@ -536,7 +533,7 @@ The SunPy Project
         margin: 0,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -610,13 +607,14 @@ The SunPy Project
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
@@ -631,7 +629,7 @@ The SunPy Project
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("gh:Cadair\/pyhc-spring-2025-sunpy-update");
+            var filterRegex = new RegExp("https:\/\/samaloney\.github\.io\/pyhc-fall-2025-sunpy-update\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

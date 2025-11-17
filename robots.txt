@@ -1,1 +1,1 @@
-Sitemap: gh:Cadair/pyhc-spring-2025-sunpy-update/sitemap.xml
+Sitemap: https://samaloney.github.io/pyhc-fall-2025-sunpy-update/sitemap.xml
