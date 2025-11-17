@@ -4,21 +4,7 @@
     "href": "slides.html#breaking-changes-and-removals",
     "title": "A SunPy Project Update",
     "section": "Breaking Changes and Removals",
-    "text": "Breaking Changes and Removals"
-  },
-  {
-    "objectID": "slides.html#breaking",
-    "href": "slides.html#breaking",
-    "title": "A SunPy Project Update",
-    "section": "Breaking",
-    "text": "Breaking\n\n. Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0"
-  },
-  {
-    "objectID": "slides.html#removals",
-    "href": "slides.html#removals",
-    "title": "A SunPy Project Update",
-    "section": "Removals",
-    "text": "Removals\n\nRemoved backwards compatibility with the legacy keyword, pattern within sunpy.net.Scraper\nRemove deprecated assume_spherical_screen method in favor of SphericalScreen"
+    "text": "Breaking Changes and Removals\nBreaking\n\nIncreased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0\n\nRemovals\n\nRemoved backwards compatibility with the legacy keyword, pattern within sunpy.net.Scraper\nRemove deprecated assume_spherical_screen method in favor of SphericalScreen"
   },
   {
     "objectID": "slides.html#solarnet-client",
