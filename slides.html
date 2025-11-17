@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -186,9 +186,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-  
-  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -238,23 +235,43 @@ The SunPy Project
 <h1>Highlights in <code>sunpy</code> 7.1</h1>
 
 </section>
+<section id="breaking-changes-and-removals" class="slide level2">
+<h2>Breaking Changes and Removals</h2>
+</section>
+<section id="breaking" class="slide level2">
+<h2>Breaking</h2>
+<ul>
+<li>. Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0</li>
+</ul>
+</section>
+<section id="removals" class="slide level2">
+<h2>Removals</h2>
+<ul>
+<li>Removed backwards compatibility with the legacy keyword, pattern within <code>sunpy.net.Scraper</code></li>
+<li>Remove deprecated <code>assume_spherical_screen</code> method in favor of <code>SphericalScreen</code></li>
+</ul>
+</section>
 <section id="solarnet-client" class="slide level2">
 <h2>SolarNet Client</h2>
 <div class="center">
-<div id="adffae54" class="cell" data-execution_count="2">
+<div id="140dd3de" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>search_results <span class="op">=</span> Fido.search(a.solarnet.Dataset.gris_level_1,a.solarnet.Limit(<span class="dv">2</span>), a.solarnet.Target.ar)</span>
 <span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a>search_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-Results from 1 Provider:<br><br>2 Results from the SOLARNETClient:<br><div><i>QueryResponseTable length=2</i>
-<table id="table139766504519392" class="table-striped table-bordered table-condensed">
-<thead><tr><th>Data_location</th><th>Tags</th><th>Resource_uri</th><th>Oid</th><th>Date_beg</th><th>Date_end</th><th>Wavemin</th><th>Wavemax</th><th>Accumula</th><th>Adunorm</th><th>Aosystem</th><th>Azimut</th><th>B0angle</th><th>Bscale</th><th>Bzero</th><th>Camera</th><th>Campos</th><th>Coefi_1</th><th>Coefi_2</th><th>Coefi_3</th><th>Coefi_4</th><th>Coefq_1</th><th>Coefq_2</th><th>Coefq_3</th><th>Coefq_4</th><th>Coefu_1</th><th>Coefu_2</th><th>Coefu_3</th><th>Coefu_4</th><th>Coefv_1</th><th>Coefv_2</th><th>Coefv_3</th><th>Coefv_4</th><th>Colpos</th><th>Datafram</th><th>Datavers</th><th>Date_obs</th><th>Dec</th><th>Eimgacc</th><th>Elevatio</th><th>Elperadu</th><th>Exptime</th><th>Filename</th><th>Filestat</th><th>Fullfram</th><th>Gratangl</th><th>Hourangl</th><th>Ifile</th><th>Imagtype</th><th>Irfilter</th><th>Iserie</th><th>L0angle</th><th>Lc1_1</th><th>Lc1_2</th><th>Lc1_3</th><th>Lc1_4</th><th>Lc2_1</th><th>Lc2_2</th><th>Lc2_3</th><th>Lc2_4</th><th>Lcs</th><th>Measure</th><th>Naxis</th><th>Naxis1</th><th>Naxis2</th><th>Naxis3</th><th>Nfiles</th><th>P0angle</th><th>Paraangl</th><th>R0radius</th><th>Ra</th><th>Rotangle</th><th>Rotcode</th><th>Series</th><th>Spsystem</th><th>States</th><th>Stepangl</th><th>Steps</th><th>Stepsh</th><th>Stepsize</th><th>Stepsv</th><th>Telescop</th><th>Temp_lc1</th><th>Temp_lc2</th><th>Waveleng</th><th>F_size</th><th>url</th></tr></thead>
-<thead><tr><th>object</th><th>float64[0]</th><th>str54</th><th>str14</th><th>str24</th><th>str24</th><th>float64</th><th>float64</th><th>int64</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>str24</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>str1</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str6</th><th>object</th><th>object</th><th>int64</th><th>str1</th><th>str128</th></tr></thead>
-<tbody><tr><td>{'resource_uri': '/service/api/svo/data_location/12496618/', 'dataset': '/service/api/svo/dataset/GRIS%20level%201/', 'id': 12496618, 'file_url': 'https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0feb97a92554c6de920ab&amp;Buckets=level1&amp;', 'file_size': '0', 'file_path': 'gris_20140426_000.tar', 'thumbnail_url': 'https://archive.sdc.leibniz-kis.de/FileRetrievalServlet?ResourceType=obs_location&amp;Instrument=gris&amp;ObjectId=5ee0feb97a92554c6de920ab', 'update_time': '2022-07-20T12:57:00.480Z', 'offline': False}</td><td></td><td>/service/api/svo/metadata_gris_level_1/20140426094659/</td><td>20140426094659</td><td>2014-04-26T09:46:59.000Z</td><td>2014-04-26T09:53:41.300Z</td><td>1564.0199</td><td>1568.0461</td><td>3</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>2014-04-26T00:00:00.000Z</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td></td><td></td><td>None</td><td>None</td><td>None</td><td></td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>5</td><td>105</td><td>471</td><td>1010</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>GREGOR</td><td>None</td><td>None</td><td>1566</td><td>0</td><td>https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0feb97a92554c6de920ab&amp;Buckets=level1&amp;</td></tr>
-<tr><td>{'resource_uri': '/service/api/svo/data_location/12496619/', 'dataset': '/service/api/svo/dataset/GRIS%20level%201/', 'id': 12496619, 'file_url': 'https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0fe957a92554c6de920a9&amp;Buckets=level1&amp;', 'file_size': '0', 'file_path': 'gris_20140426_002.tar', 'thumbnail_url': 'https://archive.sdc.leibniz-kis.de/FileRetrievalServlet?ResourceType=obs_location&amp;Instrument=gris&amp;ObjectId=5ee0fe957a92554c6de920a9', 'update_time': '2022-07-20T12:57:00.929Z', 'offline': False}</td><td></td><td>/service/api/svo/metadata_gris_level_1/20140426095643/</td><td>20140426095643</td><td>2014-04-26T09:56:43.000Z</td><td>2014-04-26T10:09:50.300Z</td><td>1564.0191</td><td>1568.0461</td><td>3</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>2014-04-26T00:00:00.000Z</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td></td><td></td><td>None</td><td>None</td><td>None</td><td></td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>5</td><td>200</td><td>471</td><td>1010</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td></td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td><td>GREGOR</td><td>None</td><td>None</td><td>1566</td><td>0</td><td>https://archive.sdc.leibniz-kis.de/ObservationBucketDownloader?Instrument=gris&amp;ObjectId=5ee0fe957a92554c6de920a9&amp;Buckets=level1&amp;</td></tr>
-</tbody></table></div><br>
+<span id="cb1-5"><a></a><span class="bu">print</span>(search_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results from 1 Provider:
+
+2 Results from the SOLARNETClient:
+Source: https://solarnet2.oma.be
+
+     Oid               Date_beg                 Date_end          Wavemin   Wavemax  Accumula Adunorm Aosystem Azimut B0angle Bscale Bzero Camera Campos Coefi_1 Coefi_2 Coefi_3 Coefi_4 Coefq_1 Coefq_2 Coefq_3 Coefq_4 Coefu_1 Coefu_2 Coefu_3 Coefu_4 Coefv_1 Coefv_2 Coefv_3 Coefv_4 Colpos Datafram Datavers         Date_obs         Dec  Eimgacc Elevatio Elperadu Exptime Filename Filestat Fullfram Gratangl Hourangl Ifile Imagtype Irfilter Iserie L0angle Lc1_1 Lc1_2 Lc1_3 Lc1_4 Lc2_1 Lc2_2 Lc2_3 Lc2_4 Lcs  Measure Naxis Naxis1 Naxis2 Naxis3 Nfiles P0angle Paraangl R0radius  Ra  Rotangle Rotcode Series Spsystem States Stepangl Steps Stepsh Stepsize Stepsv Telescop Temp_lc1 Temp_lc2 Waveleng F_size
+-------------- ------------------------ ------------------------ --------- --------- -------- ------- -------- ------ ------- ------ ----- ------ ------ ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------ -------- -------- ------------------------ ---- ------- -------- -------- ------- -------- -------- -------- -------- -------- ----- -------- -------- ------ ------- ----- ----- ----- ----- ----- ----- ----- ----- ---- ------- ----- ------ ------ ------ ------ ------- -------- -------- ---- -------- ------- ------ -------- ------ -------- ----- ------ -------- ------ -------- -------- -------- -------- ------
+20140426094659 2014-04-26T09:46:59.000Z 2014-04-26T09:53:41.300Z 1564.0199 1568.0461        3    None            None    None   None  None          None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None   None              None 2014-04-26T00:00:00.000Z None    None     None     None    None                                None     None  None                     None    None  None  None  None  None  None  None  None  None None             5    105    471   1010   None    None     None     None None     None    None   None            None     None  None   None     None   None   GREGOR     None     None     1566      0
+20140426095643 2014-04-26T09:56:43.000Z 2014-04-26T10:09:50.300Z 1564.0191 1568.0461        3    None            None    None   None  None          None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None   None              None 2014-04-26T00:00:00.000Z None    None     None     None    None                                None     None  None                     None    None  None  None  None  None  None  None  None  None None             5    200    471   1010   None    None     None     None None     None    None   None            None     None  None   None     None   None   GREGOR     None     None     1566      0
+
+</code></pre>
 </div>
 </div>
 </div>
@@ -270,12 +287,11 @@ Results from 1 Provider:<br><br>2 Results from the SOLARNETClient:<br><div><i>Qu
 </div></div>
 <p><a href="https://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py">https://docs.sunpy.org/en/latest/generated/gallery/plotting/time_distance.html#sphx-glr-generated-gallery-plotting-time-distance-py</a></p>
 <p><em>Contribution by Pratham Hole and Shane Maloney</em></p>
-<p><em>Contribution by Saurav Kumar Roy</em></p>
 </section>
 <section id="adding-earth-scale-image" class="slide level2">
 <h2>Adding Earth Scale Image</h2>
 <div class="columns">
-<div class="column" style="width:75%;">
+<div class="column center" style="width:75%;">
 <p><img data-src="https://docs.sunpy.org/en/latest/_images/sphx_glr_adding_earth_001.png"></p>
 </div></div>
 <p><a href="https://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py">https://docs.sunpy.org/en/latest/generated/gallery/plotting/adding_earth.html#sphx-glr-generated-gallery-plotting-adding-earth-py</a></p>
