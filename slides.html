@@ -247,26 +247,19 @@ The SunPy Project
 <section id="solarnet-client" class="slide level2">
 <h2>SolarNet Client</h2>
 <div class="center">
-<div id="08bc3ed8" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>search_results <span class="op">=</span> Fido.search(a.solarnet.Dataset.gris_level_1,a.solarnet.Limit(<span class="dv">2</span>), a.solarnet.Target.ar)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="bu">print</span>(search_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Results from 1 Provider:
-
-2 Results from the SOLARNETClient:
-Source: https://solarnet2.oma.be
-
-     Oid               Date_beg                 Date_end          Wavemin   Wavemax  Accumula Adunorm Aosystem Azimut B0angle Bscale Bzero Camera Campos Coefi_1 Coefi_2 Coefi_3 Coefi_4 Coefq_1 Coefq_2 Coefq_3 Coefq_4 Coefu_1 Coefu_2 Coefu_3 Coefu_4 Coefv_1 Coefv_2 Coefv_3 Coefv_4 Colpos Datafram Datavers         Date_obs         Dec  Eimgacc Elevatio Elperadu Exptime Filename Filestat Fullfram Gratangl Hourangl Ifile Imagtype Irfilter Iserie L0angle Lc1_1 Lc1_2 Lc1_3 Lc1_4 Lc2_1 Lc2_2 Lc2_3 Lc2_4 Lcs  Measure Naxis Naxis1 Naxis2 Naxis3 Nfiles P0angle Paraangl R0radius  Ra  Rotangle Rotcode Series Spsystem States Stepangl Steps Stepsh Stepsize Stepsv Telescop Temp_lc1 Temp_lc2 Waveleng F_size
--------------- ------------------------ ------------------------ --------- --------- -------- ------- -------- ------ ------- ------ ----- ------ ------ ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------ -------- -------- ------------------------ ---- ------- -------- -------- ------- -------- -------- -------- -------- -------- ----- -------- -------- ------ ------- ----- ----- ----- ----- ----- ----- ----- ----- ---- ------- ----- ------ ------ ------ ------ ------- -------- -------- ---- -------- ------- ------ -------- ------ -------- ----- ------ -------- ------ -------- -------- -------- -------- ------
-20140426094659 2014-04-26T09:46:59.000Z 2014-04-26T09:53:41.300Z 1564.0199 1568.0461        3    None            None    None   None  None          None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None   None              None 2014-04-26T00:00:00.000Z None    None     None     None    None                                None     None  None                     None    None  None  None  None  None  None  None  None  None None             5    105    471   1010   None    None     None     None None     None    None   None            None     None  None   None     None   None   GREGOR     None     None     1566      0
-20140426095643 2014-04-26T09:56:43.000Z 2014-04-26T10:09:50.300Z 1564.0191 1568.0461        3    None            None    None   None  None          None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None    None   None              None 2014-04-26T00:00:00.000Z None    None     None     None    None                                None     None  None                     None    None  None  None  None  None  None  None  None  None None             5    200    471   1010   None    None     None     None None     None    None   None            None     None  None   None     None   None   GREGOR     None     None     1566      0
-
-</code></pre>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a  <span class="co"># doctest: +REMOTE_DATA</span></span>
+<span id="cb1-2"><a></a><span class="op">&gt;&gt;&gt;</span> result <span class="op">=</span> Fido.search(a.Time(<span class="st">'2023-01-01'</span>, <span class="st">'2023-01-02'</span>), a.solarnet.Dataset.eui_level_2, a.solarnet.Limit(<span class="dv">2</span>))</span>
+<span id="cb1-3"><a></a><span class="op">&gt;&gt;&gt;</span> result</span>
+<span id="cb1-4"><a></a><span class="op">&lt;</span>sunpy.net.fido_factory.UnifiedResponse <span class="bu">object</span> at ...<span class="op">&gt;</span></span>
+<span id="cb1-5"><a></a>Results <span class="im">from</span> <span class="dv">1</span> Provider:</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="dv">2</span> Results <span class="im">from</span> the SOLARNETClient:</span>
+<span id="cb1-8"><a></a>Source: https:<span class="op">//</span>solarnet2.oma.be</span>
+<span id="cb1-9"><a></a><span class="op">&lt;</span>BLANKLINE<span class="op">&gt;</span></span>
+<span id="cb1-10"><a></a>       OID                 DATE_BEG                 DATE_END         WAVEMIN WAVEMAX         DATE_OBS</span>
+<span id="cb1-11"><a></a><span class="op">------------------</span> <span class="op">------------------------</span> <span class="op">------------------------</span> <span class="op">-------</span> <span class="op">-------</span> <span class="op">------------------------</span></span>
+<span id="cb1-12"><a></a><span class="dv">20230101</span><span class="er">T000005185</span> <span class="dv">2023</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">-</span><span class="dv">0</span><span class="er">1T00</span>:<span class="dv">00</span>:<span class="fl">05.185</span><span class="er">Z</span> <span class="dv">2023</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">-</span><span class="dv">0</span><span class="er">1T00</span>:<span class="dv">16</span>:<span class="fl">45.185</span><span class="er">Z</span>    <span class="fl">17.1</span>    <span class="fl">18.5</span> <span class="dv">2023</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">-</span><span class="dv">0</span><span class="er">1T00</span>:<span class="dv">00</span>:<span class="fl">05.185</span><span class="er">Z</span></span>
+<span id="cb1-13"><a></a><span class="dv">20230101</span><span class="er">T001805186</span> <span class="dv">2023</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">-</span><span class="dv">0</span><span class="er">1T00</span>:<span class="dv">18</span>:<span class="fl">05.186</span><span class="er">Z</span> <span class="dv">2023</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">-</span><span class="dv">0</span><span class="er">1T00</span>:<span class="dv">34</span>:<span class="fl">45.186</span><span class="er">Z</span>    <span class="fl">17.1</span>    <span class="fl">18.5</span> <span class="dv">2023</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">-</span><span class="dv">0</span><span class="er">1T00</span>:<span class="dv">18</span>:<span class="fl">05.186</span><span class="er">Z</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><em>Contribution by Saurav Kumar Roy</em></p>
 </section>
