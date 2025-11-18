@@ -239,14 +239,22 @@ The SunPy Project
 <h2>Breaking Changes and Removals</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Breaking</strong> * Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0</p>
+<p><strong>Breaking</strong></p>
+<ul>
+<li>Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0</li>
+</ul>
 </div><div class="column" style="width:50%;">
-<p><strong>Removals</strong> * Removed backwards compatibility with the legacy keyword, pattern within <code>sunpy.net.Scraper</code> * Remove deprecated <code>assume_spherical_screen</code> method in favor of <code>SphericalScreen</code></p>
+<p><strong>Removals</strong></p>
+<ul>
+<li>Removed backwards compatibility with the legacy keyword, pattern within <code>sunpy.net.Scraper</code></li>
+<li>Remove deprecated <code>assume_spherical_screen</code> method in favor of <code>SphericalScreen</code></li>
+</ul>
 </div></div>
 </section>
 <section id="solarnet-client" class="slide level2">
 <h2>SolarNet Client</h2>
 <div class="center">
+<p>Added a <a href="https://solarnet.oma.be">SOLARNET</a> client primarily focused on ground based observations.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a  <span class="co"># doctest: +REMOTE_DATA</span></span>
 <span id="cb1-2"><a></a><span class="op">&gt;&gt;&gt;</span> result <span class="op">=</span> Fido.search(a.Time(<span class="st">'2023-01-01'</span>, <span class="st">'2023-01-02'</span>), a.solarnet.Dataset.eui_level_2, a.solarnet.Limit(<span class="dv">2</span>))</span>
 <span id="cb1-3"><a></a><span class="op">&gt;&gt;&gt;</span> result</span>

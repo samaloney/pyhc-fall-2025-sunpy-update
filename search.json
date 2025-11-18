@@ -4,14 +4,14 @@
     "href": "slides.html#breaking-changes-and-removals",
     "title": "A SunPy Project Update",
     "section": "Breaking Changes and Removals",
-    "text": "Breaking Changes and Removals\n\n\nBreaking * Increased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0\n\nRemovals * Removed backwards compatibility with the legacy keyword, pattern within sunpy.net.Scraper * Remove deprecated assume_spherical_screen method in favor of SphericalScreen"
+    "text": "Breaking Changes and Removals\n\n\nBreaking\n\nIncreased minimum versions: Python &gt;= 3.12, astropy &gt;= 6.1.0, matplotlib &gt;= 3.8.0, numpy &gt;= 1.26.0, pandas &gt;= 2.2.0, scipy &gt;= 1.12.0\n\n\nRemovals\n\nRemoved backwards compatibility with the legacy keyword, pattern within sunpy.net.Scraper\nRemove deprecated assume_spherical_screen method in favor of SphericalScreen"
   },
   {
     "objectID": "slides.html#solarnet-client",
     "href": "slides.html#solarnet-client",
     "title": "A SunPy Project Update",
     "section": "SolarNet Client",
-    "text": "SolarNet Client\n\n&gt;&gt;&gt; from sunpy.net import Fido, attrs as a  # doctest: +REMOTE_DATA\n&gt;&gt;&gt; result = Fido.search(a.Time('2023-01-01', '2023-01-02'), a.solarnet.Dataset.eui_level_2, a.solarnet.Limit(2))\n&gt;&gt;&gt; result\n&lt;sunpy.net.fido_factory.UnifiedResponse object at ...&gt;\nResults from 1 Provider:\n\n2 Results from the SOLARNETClient:\nSource: https://solarnet2.oma.be\n&lt;BLANKLINE&gt;\n       OID                 DATE_BEG                 DATE_END         WAVEMIN WAVEMAX         DATE_OBS\n------------------ ------------------------ ------------------------ ------- ------- ------------------------\n20230101T000005185 2023-01-01T00:00:05.185Z 2023-01-01T00:16:45.185Z    17.1    18.5 2023-01-01T00:00:05.185Z\n20230101T001805186 2023-01-01T00:18:05.186Z 2023-01-01T00:34:45.186Z    17.1    18.5 2023-01-01T00:18:05.186Z\n\nContribution by Saurav Kumar Roy"
+    "text": "SolarNet Client\n\nAdded a SOLARNET client primarily focused on ground based observations.\n&gt;&gt;&gt; from sunpy.net import Fido, attrs as a  # doctest: +REMOTE_DATA\n&gt;&gt;&gt; result = Fido.search(a.Time('2023-01-01', '2023-01-02'), a.solarnet.Dataset.eui_level_2, a.solarnet.Limit(2))\n&gt;&gt;&gt; result\n&lt;sunpy.net.fido_factory.UnifiedResponse object at ...&gt;\nResults from 1 Provider:\n\n2 Results from the SOLARNETClient:\nSource: https://solarnet2.oma.be\n&lt;BLANKLINE&gt;\n       OID                 DATE_BEG                 DATE_END         WAVEMIN WAVEMAX         DATE_OBS\n------------------ ------------------------ ------------------------ ------- ------- ------------------------\n20230101T000005185 2023-01-01T00:00:05.185Z 2023-01-01T00:16:45.185Z    17.1    18.5 2023-01-01T00:00:05.185Z\n20230101T001805186 2023-01-01T00:18:05.186Z 2023-01-01T00:34:45.186Z    17.1    18.5 2023-01-01T00:18:05.186Z\n\nContribution by Saurav Kumar Roy"
   },
   {
     "objectID": "slides.html#time-distance-plot-example",
